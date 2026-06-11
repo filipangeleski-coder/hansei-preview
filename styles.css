@@ -104,6 +104,7 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 }
 .hero__scrollcue i { width: 1px; height: 52px; background: currentColor; display: block; animation: cue 2.2s var(--ease) infinite; transform-origin: top; }
 @keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
+@media (max-width: 640px) { .hero__scrollcue { display: none; } }
 
 /* ---------- manifesto ---------- */
 .manifesto { padding: clamp(6rem, 14vh, 11rem) clamp(1.2rem, 4.5vw, 3.4rem); max-width: 70rem; }
