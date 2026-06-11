@@ -37,6 +37,7 @@ Promise.race([
 const nav = document.getElementById("nav");
 ScrollTrigger.create({
   start: () => window.innerHeight * 0.82 + " top",
+  end: "max",
   onToggle: (self) => nav.classList.toggle("is-solid", self.isActive),
 });
 
