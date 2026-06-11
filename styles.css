@@ -17,7 +17,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: auto; }
+html { scroll-behavior: auto; overflow-x: clip; }
 body {
   font-family: var(--text);
   font-size: 17px;
@@ -118,6 +118,12 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 .plate > div:first-child { border-left: 0; }
 .plate dt { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
 .plate dd { font-family: var(--display); font-weight: 600; font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) {
+  .plate { display: grid; grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); width: 100%; }
+  .plate > div { padding: 0.85rem 1rem; }
+  .plate > div:nth-child(odd) { border-left: 0; }
+  .plate > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
 
 /* ---------- 3d ---------- */
 .three { background: var(--paper-deep); }
@@ -181,6 +187,10 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 /* ---------- interlude ---------- */
 .interlude { margin-top: clamp(6rem, 13vh, 10rem); height: clamp(340px, 64vh, 640px); overflow: clip; position: relative; }
 .interlude__media { position: absolute; inset: -14% 0; }
+@media (max-width: 640px) {
+  .interlude { height: 64vw; min-height: 0; }
+  .material__banner { height: 62vw; min-height: 0; }
+}
 
 /* ---------- material (forest drench) ---------- */
 .material { background: var(--forest); color: var(--forest-ink); }
