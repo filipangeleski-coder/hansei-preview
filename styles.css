@@ -1,0 +1,228 @@
+/* Hansei landing — engineering drawing meets quiet luxury.
+   Paper-warm light theme, Forest drench on material + footer. */
+
+:root {
+  --paper: oklch(0.97 0.008 85);
+  --paper-deep: oklch(0.935 0.012 80);
+  --ink: oklch(0.24 0.012 75);
+  --ink-soft: oklch(0.46 0.012 75);
+  --line: oklch(0.86 0.01 80);
+  --forest: oklch(0.32 0.055 155);
+  --forest-deep: oklch(0.27 0.05 155);
+  --forest-ink: oklch(0.95 0.012 140);
+  --forest-soft: oklch(0.78 0.03 150);
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --text: "Schibsted Grotesk", system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  font-family: var(--text);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+h1, h2 { font-family: var(--display); font-weight: 500; letter-spacing: -0.015em; }
+h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.04; }
+button { font: inherit; background: none; border: 0; cursor: pointer; color: inherit; }
+
+/* ---------- loader ---------- */
+.loader {
+  position: fixed; inset: 0; z-index: 60;
+  display: grid; place-items: center;
+  background: var(--paper);
+  transition: opacity 0.7s var(--ease), visibility 0.7s;
+}
+.loader.is-done { opacity: 0; visibility: hidden; }
+.loader__mark {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.42em; padding-left: 0.42em;
+  animation: loaderpulse 1.6s var(--ease) infinite alternate;
+}
+@keyframes loaderpulse { from { opacity: 0.35; } to { opacity: 1; } }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem clamp(1.2rem, 4vw, 3rem);
+  color: #fff;
+  transition: color 0.45s var(--ease), background 0.45s var(--ease), box-shadow 0.45s;
+}
+.nav.is-solid {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.nav__mark { font-family: var(--display); font-weight: 600; letter-spacing: 0.34em; font-size: 0.95rem; }
+.nav__link {
+  color: inherit; text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.06em; border-bottom: 1px solid transparent; transition: border-color 0.3s;
+}
+.nav__link:hover { border-color: currentColor; }
+
+/* ---------- kicker / shared ---------- */
+.kicker {
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 1.4rem;
+}
+.kicker--light { color: color-mix(in oklab, #fff 85%, transparent); }
+.kicker--drench { color: var(--forest-soft); }
+.line { display: block; overflow: hidden; }
+.line > span { display: inline-block; will-change: transform; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; height: 100svh; min-height: 620px; overflow: clip; color: #fff; }
+.hero__media { position: absolute; inset: -12% 0 0 0; will-change: transform; }
+.hero__veil {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, oklch(0.2 0.01 75 / 0.55) 0%, transparent 45%),
+    linear-gradient(to bottom, oklch(0.2 0.01 75 / 0.3) 0%, transparent 28%);
+}
+.hero__content {
+  position: absolute; left: clamp(1.2rem, 4.5vw, 3.4rem); bottom: clamp(4.4rem, 11vh, 8rem);
+  max-width: 44rem;
+}
+.hero__title {
+  font-size: clamp(3.2rem, 9.5vw, 7.6rem); line-height: 0.98; font-weight: 500;
+  margin: 0.4rem 0 1.3rem;
+}
+.hero__sub { font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.55; color: color-mix(in oklab, #fff 92%, transparent); }
+.hero__scrollcue {
+  position: absolute; right: clamp(1.4rem, 4vw, 3.2rem); bottom: 2.4rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: color-mix(in oklab, #fff 80%, transparent);
+}
+.hero__scrollcue i { width: 1px; height: 52px; background: currentColor; display: block; animation: cue 2.2s var(--ease) infinite; transform-origin: top; }
+@keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* ---------- manifesto ---------- */
+.manifesto { padding: clamp(6rem, 14vh, 11rem) clamp(1.2rem, 4.5vw, 3.4rem); max-width: 70rem; }
+.manifesto__title { font-size: clamp(2.6rem, 6.4vw, 5.4rem); line-height: 1.02; margin-bottom: 2.2rem; }
+.manifesto__body { max-width: 38rem; font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: var(--ink-soft); margin-bottom: 3.4rem; }
+.plate {
+  display: inline-grid; grid-auto-flow: column; gap: 0;
+  border: 1px solid var(--line); border-radius: 2px;
+}
+.plate > div { padding: 1rem 1.6rem; border-left: 1px solid var(--line); text-align: center; }
+.plate > div:first-child { border-left: 0; }
+.plate dt { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
+.plate dd { font-family: var(--display); font-weight: 600; font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+
+/* ---------- 3d ---------- */
+.three { background: var(--paper-deep); }
+.three__sticky {
+  min-height: 100svh; display: flex; flex-direction: column;
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(1.2rem, 4.5vw, 3.4rem) 2.4rem;
+}
+.three__head { max-width: 46rem; }
+.three__body { color: var(--ink-soft); margin-top: 1.1rem; max-width: 34rem; }
+.three__stage { position: relative; flex: 1; min-height: 320px; }
+#table-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.three__hint {
+  position: absolute; left: 50%; bottom: 0.4rem; transform: translateX(-50%);
+  font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-soft);
+  transition: opacity 0.5s;
+}
+.three__hint.is-hidden { opacity: 0; }
+.three__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; justify-content: space-between; }
+.three__drag { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-soft); }
+.swatches { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+.swatch { position: relative; display: grid; place-items: center; padding: 0.2rem; border-radius: 50%; }
+.swatch i {
+  width: 26px; height: 26px; border-radius: 50%; display: block; background: var(--c);
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.14);
+  transition: transform 0.3s var(--ease);
+}
+.swatch span {
+  position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%);
+  font-size: 0.64rem; letter-spacing: 0.05em; white-space: nowrap; color: var(--ink-soft);
+  opacity: 0; transition: opacity 0.25s; pointer-events: none;
+}
+.swatch:hover span, .swatch:focus-visible span { opacity: 1; }
+.swatch.is-active i { transform: scale(1.18); box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.2), 0 0 0 2px var(--paper-deep), 0 0 0 3.5px var(--ink); }
+
+/* ---------- collection ---------- */
+.collection { padding-top: clamp(6rem, 13vh, 10rem); }
+.collection__head { padding: 0 clamp(1.2rem, 4.5vw, 3.4rem) 3rem; max-width: 60rem; }
+.flow { position: relative; }
+.flow__track { display: flex; gap: clamp(1rem, 2.4vw, 2rem); padding: 0 clamp(1.2rem, 4.5vw, 3.4rem); will-change: transform; }
+.card { flex: 0 0 auto; width: clamp(240px, 26vw, 380px); }
+.card__img {
+  aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px; background: var(--paper-deep);
+}
+.card__img img { transform: scale(1.06); transition: transform 1s var(--ease); }
+.card:hover .card__img img { transform: scale(1); }
+.card figcaption {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0.8rem 0.1rem 0; border-top: 1px solid var(--line); margin-top: 0.9rem;
+}
+.card figcaption span { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.card figcaption em { font-style: normal; font-size: 0.78rem; color: var(--ink-soft); }
+
+/* mobile: native swipe */
+@media (max-width: 767px) {
+  .flow { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .flow::-webkit-scrollbar { display: none; }
+  .flow__track { width: max-content; }
+  .card { scroll-snap-align: center; width: 76vw; }
+}
+
+/* ---------- interlude ---------- */
+.interlude { margin-top: clamp(6rem, 13vh, 10rem); height: clamp(340px, 64vh, 640px); overflow: clip; position: relative; }
+.interlude__media { position: absolute; inset: -14% 0; }
+
+/* ---------- material (forest drench) ---------- */
+.material { background: var(--forest); color: var(--forest-ink); }
+.material__banner { height: clamp(280px, 52vh, 540px); overflow: clip; position: relative; }
+.material__banner img { position: absolute; inset: -12% 0; height: 124%; }
+.material__inner { padding: clamp(4.5rem, 10vh, 8rem) clamp(1.2rem, 4.5vw, 3.4rem) clamp(5rem, 11vh, 9rem); max-width: 72rem; }
+.material h2 { font-size: clamp(3rem, 7.5vw, 6.2rem); }
+.material__body { max-width: 36rem; margin-top: 1.4rem; color: color-mix(in oklab, var(--forest-ink) 82%, transparent); font-size: clamp(1.02rem, 1.4vw, 1.18rem); }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 1.1rem 1.8rem; margin: 2.6rem 0 3.6rem; }
+.chips li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; letter-spacing: 0.06em; color: color-mix(in oklab, var(--forest-ink) 88%, transparent); }
+.chips i { width: 22px; height: 22px; border-radius: 4px; background: var(--c); box-shadow: inset 0 0 0 1px oklch(1 0 0 / 0.18), 0 0 0 1px var(--forest-deep); }
+.material__flatlay { max-width: 46rem; }
+.material__flatlay img { border-radius: 2px; }
+.material__flatlay figcaption { margin-top: 0.9rem; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--forest-soft); }
+
+/* ---------- workshop ---------- */
+.workshop { padding: clamp(6rem, 13vh, 10rem) clamp(1.2rem, 4.5vw, 3.4rem); }
+.workshop__body { max-width: 34rem; color: var(--ink-soft); margin: 1.2rem 0 3rem; }
+.videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(1rem, 2.2vw, 1.8rem); }
+.video { border-radius: 2px; overflow: hidden; background: var(--paper-deep); }
+.video video { aspect-ratio: 9 / 14; }
+.video:first-child video, .video:nth-child(4) video { aspect-ratio: 16 / 11; }
+.video figcaption { padding: 0.75rem 0.2rem 0.9rem; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+@media (min-width: 900px) { .videos { grid-template-columns: 1.4fr 1fr 1fr 1.4fr; align-items: start; } }
+
+/* ---------- footer ---------- */
+.footer { background: var(--forest-deep); color: var(--forest-ink); padding: clamp(5rem, 11vh, 8rem) clamp(1.2rem, 4.5vw, 3.4rem) 2.2rem; text-align: center; }
+.footer__mark { font-family: var(--display); font-weight: 600; font-size: clamp(3rem, 11vw, 8rem); letter-spacing: 0.3em; padding-left: 0.3em; line-height: 1; }
+.footer__line { margin-top: 1.4rem; font-size: clamp(1rem, 1.6vw, 1.25rem); color: color-mix(in oklab, var(--forest-ink) 80%, transparent); }
+.footer__cta {
+  display: inline-block; margin-top: 2.6rem; padding: 0.95rem 1.9rem;
+  border: 1px solid color-mix(in oklab, var(--forest-ink) 45%, transparent); border-radius: 999px;
+  color: var(--forest-ink); text-decoration: none; font-weight: 500; font-size: 0.92rem; letter-spacing: 0.04em;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+.footer__cta:hover { background: var(--forest-ink); color: var(--forest-deep); }
+.footer__note { margin-top: 3.4rem; font-size: 0.8rem; line-height: 1.7; color: color-mix(in oklab, var(--forest-ink) 62%, transparent); }
+.footer__fine { margin-top: 2.6rem; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: color-mix(in oklab, var(--forest-ink) 45%, transparent); }
+
+/* ---------- reveals ---------- */
+[data-reveal] { opacity: 0; transform: translateY(28px); }
+.no-js [data-reveal], .reduced [data-reveal] { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scrollcue i, .loader__mark { animation: none; }
+}

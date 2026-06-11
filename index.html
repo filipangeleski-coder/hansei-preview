@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hansei Furniture · Assembled by hand. No tools.</title>
+<meta name="description" content="Precision-made furniture that assembles without tools. No screws, no cams, no dowels. A mallet to seat the joints, nothing more. Made on the South Coast, NSW.">
+<meta property="og:title" content="Hansei Furniture">
+<meta property="og:description" content="Assembled by hand. No screws, no cams, no dowels. A mallet, nothing more.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <span class="loader__mark">HANSEI</span>
+</div>
+
+<header class="nav" id="nav">
+  <span class="nav__mark">HANSEI</span>
+  <a class="nav__link" href="https://www.instagram.com/hanseifurniture.au" target="_blank" rel="noopener">@hanseifurniture.au</a>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <img src="assets/hero.jpg" alt="Hansei coffee table in Dark Concrete PaperRock, concrete-walled living room with sheer curtains" fetchpriority="high">
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="kicker kicker--light" data-hero-stagger>Hansei Furniture · South Coast, NSW</p>
+      <h1 class="hero__title">
+        <span class="line"><span data-hero-line>Assembled</span></span>
+        <span class="line"><span data-hero-line>by hand.</span></span>
+      </h1>
+      <p class="hero__sub" data-hero-stagger>Precision joinery that goes together without a single screw.<br>A mallet to seat the joints. Nothing more.</p>
+    </div>
+    <div class="hero__scrollcue" data-hero-stagger aria-hidden="true">
+      <span>Scroll</span><i></i>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <p class="kicker" data-reveal>The idea</p>
+    <h2 class="manifesto__title">
+      <span class="line"><span data-line>This isn't flat-pack.</span></span>
+      <span class="line"><span data-line>It's the opposite.</span></span>
+    </h2>
+    <p class="manifesto__body" data-reveal>Tool-free assembly is only possible because every joint is precision-cut and hand-finished to fit exactly. Easy to build because it's been made properly. Not because it's been made cheap.</p>
+    <dl class="plate" data-reveal>
+      <div><dt>Screws</dt><dd>00</dd></div>
+      <div><dt>Cams</dt><dd>00</dd></div>
+      <div><dt>Dowels</dt><dd>00</dd></div>
+      <div><dt>Mallet</dt><dd>01</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3D ASSEMBLY -->
+  <section class="three" id="three-section">
+    <div class="three__sticky">
+      <div class="three__head">
+        <p class="kicker" data-reveal>The joint</p>
+        <h2 data-reveal>Held by geometry.</h2>
+        <p class="three__body" data-reveal>Two hook keys thread through a slotted batten and lock the panel solid. Tap them home with a mallet. Tap them out and the piece packs flat.</p>
+      </div>
+      <div class="three__stage">
+        <canvas id="table-canvas" aria-label="Interactive 3D model of the Hansei round coffee table assembling from parts"></canvas>
+        <p class="three__hint" id="three-hint">Scroll to assemble</p>
+      </div>
+      <div class="three__controls">
+        <p class="three__drag">Drag to turn</p>
+        <div class="swatches" id="swatches" role="group" aria-label="PaperRock colourways">
+          <button class="swatch" data-c="#e8e4dd" data-core="#3f3b35" aria-label="White"><i style="--c:#e8e4dd"></i><span>White</span></button>
+          <button class="swatch" data-c="#b9b3a9" data-core="#3f3b35" aria-label="Light Concrete"><i style="--c:#b9b3a9"></i><span>Light Concrete</span></button>
+          <button class="swatch is-active" data-c="#615c54" data-core="#2e2b27" aria-label="Dark Concrete"><i style="--c:#615c54"></i><span>Dark Concrete</span></button>
+          <button class="swatch" data-c="#33415e" data-core="#23262e" aria-label="Indigo"><i style="--c:#33415e"></i><span>Indigo</span></button>
+          <button class="swatch" data-c="#9d7585" data-core="#3a2f34" aria-label="Mauve"><i style="--c:#9d7585"></i><span>Mauve</span></button>
+          <button class="swatch" data-c="#2e4636" data-core="#22291f" aria-label="Forest"><i style="--c:#2e4636"></i><span>Forest</span></button>
+          <button class="swatch" data-c="#d9a8a0" data-core="#473734" aria-label="Blush"><i style="--c:#d9a8a0"></i><span>Blush</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="collection">
+    <div class="collection__head">
+      <p class="kicker" data-reveal>The collection</p>
+      <h2 data-reveal>Quiet pieces for considered rooms.</h2>
+    </div>
+    <div class="flow" id="flow">
+      <div class="flow__track" id="flow-track">
+        <figure class="card"><div class="card__img"><img src="assets/g-coffee-dc.jpg" alt="Coffee table in Dark Concrete" loading="lazy"></div><figcaption><span>Coffee Table</span><em>Dark Concrete</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-round-mauve.jpg" alt="Round coffee table in Mauve" loading="lazy"></div><figcaption><span>Round Table</span><em>Mauve</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-shelf-forest.jpg" alt="Bookshelf in Forest" loading="lazy"></div><figcaption><span>Bookshelf</span><em>Forest</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-bedside-blush.jpg" alt="Bedside table in Blush" loading="lazy"></div><figcaption><span>Bedside</span><em>Blush</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-bench-white.jpg" alt="Media bench in White" loading="lazy"></div><figcaption><span>Media Bench</span><em>White</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-tower-dc.jpg" alt="Tower shelf in Dark Concrete" loading="lazy"></div><figcaption><span>Tower Shelf</span><em>Dark Concrete</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-table-lc.jpg" alt="Coffee table in Light Concrete" loading="lazy"></div><figcaption><span>Coffee Table</span><em>Light Concrete</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-bedside-white.jpg" alt="Bedside table in White" loading="lazy"></div><figcaption><span>Bedside</span><em>White</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-shelf-indigo.jpg" alt="Bookshelf in Indigo" loading="lazy"></div><figcaption><span>Bookshelf</span><em>Indigo</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-round-forest.jpg" alt="Round table in Forest" loading="lazy"></div><figcaption><span>Round Table</span><em>Forest</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-collection.jpg" alt="Coffee table and bookshelf together" loading="lazy"></div><figcaption><span>The Collection</span><em>Dark Concrete · Forest</em></figcaption></figure>
+        <figure class="card"><div class="card__img"><img src="assets/g-explode.jpg" alt="Exploded view of the round table" loading="lazy"></div><figcaption><span>Every Part</span><em>Dark Concrete</em></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERLUDE -->
+  <section class="interlude">
+    <div class="interlude__media" data-parallax>
+      <img src="assets/wide-bedside.jpg" alt="Bedside table in Blush at golden hour" loading="lazy">
+    </div>
+  </section>
+
+  <!-- MATERIAL (Forest drench) -->
+  <section class="material">
+    <div class="material__banner" data-parallax>
+      <img src="assets/banner-joint.jpg" alt="The locking key joint in Indigo PaperRock, macro" loading="lazy">
+    </div>
+    <div class="material__inner">
+      <p class="kicker kicker--drench" data-reveal>The material</p>
+      <h2 data-reveal>PaperRock.</h2>
+      <p class="material__body" data-reveal>A dense composite of compressed paper. Perfectly matte, warm to the touch, solid colour all the way through. Every machined edge reveals a dark layered core, so the joinery reads in every colourway.</p>
+      <ul class="chips" data-reveal>
+        <li><i style="--c:#e8e4dd"></i>White</li>
+        <li><i style="--c:#b9b3a9"></i>Light Concrete</li>
+        <li><i style="--c:#615c54"></i>Dark Concrete</li>
+        <li><i style="--c:#33415e"></i>Indigo</li>
+        <li><i style="--c:#9d7585"></i>Mauve</li>
+        <li><i style="--c:#2e4636"></i>Forest</li>
+        <li><i style="--c:#d9a8a0"></i>Blush</li>
+      </ul>
+      <figure class="material__flatlay" data-reveal>
+        <img src="assets/g-flatlay-forest.jpg" alt="Every component of the round table laid flat in Forest PaperRock with the wooden mallet" loading="lazy">
+        <figcaption>One table. Ten parts. One mallet.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WORKSHOP -->
+  <section class="workshop">
+    <p class="kicker" data-reveal>The workshop</p>
+    <h2 data-reveal>Made here. All of it.</h2>
+    <p class="workshop__body" data-reveal>Designed, manufactured and hand finished on the South Coast. Cut on one machine. Finished by hand. Assembled with a mallet.</p>
+    <div class="videos">
+      <figure class="video" data-reveal><video src="assets/v-cnc.mp4" poster="assets/v-cnc-poster.jpg" muted loop playsinline preload="metadata"></video><figcaption>Cutting the nested panels</figcaption></figure>
+      <figure class="video" data-reveal><video src="assets/v-mallet.mp4" poster="assets/v-mallet-poster.jpg" muted loop playsinline preload="metadata"></video><figcaption>Seating the keys</figcaption></figure>
+      <figure class="video" data-reveal><video src="assets/v-key.mp4" poster="assets/v-key-poster.jpg" muted loop playsinline preload="metadata"></video><figcaption>The joint, by hand</figcaption></figure>
+      <figure class="video" data-reveal><video src="assets/v-build.mp4" poster="assets/v-build-poster.jpg" muted loop playsinline preload="metadata"></video><figcaption>Simpler than the rest</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer__mark" data-reveal>HANSEI</p>
+    <p class="footer__line" data-reveal>Built once. Built right. Made to last.</p>
+    <a class="footer__cta" href="https://www.instagram.com/hanseifurniture.au" target="_blank" rel="noopener" data-reveal>Follow the build · @hanseifurniture.au</a>
+    <p class="footer__note" data-reveal>Interior scenes on this page are concept visualisations of the PaperRock colourway range.<br>The joinery, the workshop and the mallet are real.</p>
+    <p class="footer__fine">Concept preview · Hansei Furniture · South Coast, NSW</p>
+  </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
